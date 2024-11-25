@@ -1,0 +1,15 @@
+PREGUNTAS SOBRE CONSIDERACIONES:
+Ejemplo del formato del documento “Estructuras.pdf”? (de otro tp)
+	"Debe representar las estructuras de datos indicando índices/claves y
+	 valores. Esto le ayudará a identificar cómo crear, acceder y recorrer las
+	 estructuras."
+
+Estimado de fecha de entrega y defensa del TP?
+	"Las fechas de entrega se publicaran en Pedco y Discord"
+
+Tests unitarios?
+	"Si implementa una función, debe asegurarse que funciona correctamente de
+	forma individual (test o prueba unitaria), es decir, testear cada módulo con
+	distintos valores de parámetros y determinar si la salida es la esperada"
+
+PREGUNTAS SOBRE EL ENUNCIADO:
