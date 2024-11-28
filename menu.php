@@ -1,5 +1,4 @@
 <?php
-include 'mostrarError.php';
   // Array de opciones de menu, expandir opciones aca
   const OPCIONES_MENU = [
     'Mostrar cantidad de matrices del programa',

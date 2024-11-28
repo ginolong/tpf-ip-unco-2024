@@ -5,6 +5,7 @@ Ejemplo del formato del documento “Estructuras.pdf”? (de otro tp)
 	 estructuras."
 
 	 	RTA: van a pasar un pdf de ejemplo
+		https://docs.google.com/spreadsheets/d/1yJ8L4egxU9d55cnQHml0j7qUFuHNhR6t/edit?gid=843541268#gid=843541268
 
 Estimado de fecha de entrega y defensa del TP?
 	"Las fechas de entrega se publicaran en Pedco y Discord"

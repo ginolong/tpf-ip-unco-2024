@@ -1,6 +1,9 @@
 <?php
   include 'menu.php';
   include 'obtenerMatrices.php';
+  include 'mostrarMatriz.php';
+  include 'buscarUnaMatriz.php';
+  include 'mostrarError.php';
 
   echo "\033c"; // limpiar consola (solo cmd/powershell)
   
@@ -10,15 +13,21 @@
   /* comentar obj del programa */
   /* documentar función */
 function programaMatrices($unaColeccionMatrices) {
-  $opcion = menu();
+  $opcion = menu(); // STRING
+  $matriz = []; // ARRAY bidimensional
   switch ($opcion) {
     case '1': // Mostrar cantidad de matrices del programa
       echo "\033[100m\nLa cantidad de matrices del programa es " . count($unaColeccionMatrices) . ".\033[0m\n\n";
-      programaMatrices($unaColeccionMatrices);
+      programaMatrices($unaColeccionMatrices); // recursividad
       break;
       
     case '2': // Mostrar una matriz
-      echo "\033[100m\nMostrando una matriz...\033[0m\n\n";
+      while (!$matriz) { // se repite mientras no se devuelva una matriz
+        $matriz = buscarUnaMatriz('Mostrando una matriz...', $unaColeccionMatrices);
+      }
+      if ($matriz) {
+        mostrarMatriz($matriz);
+      }
       programaMatrices($unaColeccionMatrices);
       break;
       
