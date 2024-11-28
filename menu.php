@@ -1,4 +1,5 @@
 <?php
+include 'mostrarError.php';
   // Array de opciones de menu, expandir opciones aca
   const OPCIONES_MENU = [
     'Mostrar cantidad de matrices del programa',
@@ -21,12 +22,7 @@
  * @return string La selección válida del usuario, como una cadena de texto que representa el número de la opción del menú.
  */
 
-  function menu($error = null) {
-
-      // Muestra el mensaje de error si se pasa como parámetro (opcional)
-      if ($error) {
-        echo "\033[1;41m        ERROR: $error\033[0m\n\n";
-      }
+  function menu() {
 
       // Recorre el array de opciones para imprimirlo en consola dandole formato
       echo "\033[4mSeleccione una opción ingresando el \033[32mnúmero\033[0m\033[4m correspondiente:\033[0m \n\n";
@@ -38,14 +34,9 @@
 
       // Verifica si la seleccion es numerica y dentro del rango de opciones validas (count de array de opciones)
       if (!is_numeric($seleccion)) {
-        return menu('El valor ingresado no es un número.         '); // En caso de error, la función se llama a si misma (recursiva)
-      } elseif (!($seleccion >= 1 && $seleccion <= count(OPCIONES_MENU))) { //$seleccion no sea menor 1 o seleccion no sea mayor a 6  (negado)
-        return menu('El número ingresado no es una opción válida.'); // Se hace con return sino devolvería NULL en caso de error, cortando el switch del programa principal.
-      } else { 
-        return $seleccion;
+        mostrarError('El valor ingresado no es un número.         ');
+      } elseif (!($seleccion >= 1 && $seleccion <= count(OPCIONES_MENU))) { //$seleccion no sea menor 1 y no sea mayor a count/count (negado)
+        mostrarError('El número ingresado no es una opción válida.');
       }
+      return $seleccion;
     }
-
-
-
-  

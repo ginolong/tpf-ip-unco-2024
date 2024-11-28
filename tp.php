@@ -1,47 +1,48 @@
 <?php
   include 'menu.php';
+  include 'obtenerMatrices.php';
 
   echo "\033c"; // limpiar consola (solo cmd/powershell)
   
-  //obtenerColeccionMatrices();
-  programaMatrices();
+  $coleccionMatrices = obtenerColeccionMatrices(); // precarga de matrices
+  programaMatrices($coleccionMatrices);
 
   /* comentar obj del programa */
-  /* documentar función con tipos de datos */
-function programaMatrices() {
+  /* documentar función */
+function programaMatrices($unaColeccionMatrices) {
   $opcion = menu();
   switch ($opcion) {
-    case '1':
-      echo "\033[100m\nMostrando cantidad de matrices del programa...\033[0m\n\n";
-      programaMatrices();
+    case '1': // Mostrar cantidad de matrices del programa
+      echo "\033[100m\nLa cantidad de matrices del programa es " . count($unaColeccionMatrices) . ".\033[0m\n\n";
+      programaMatrices($unaColeccionMatrices);
       break;
       
-    case '2':
+    case '2': // Mostrar una matriz
       echo "\033[100m\nMostrando una matriz...\033[0m\n\n";
-      programaMatrices();
+      programaMatrices($unaColeccionMatrices);
       break;
       
-    case '3':
+    case '3': // Ingresar una matriz NxM
       echo "\033[100m\nIngresando una matriz NxM...\033[0m\n\n";
-      programaMatrices();
+      programaMatrices($unaColeccionMatrices);
       break;
       
-    case '4':
+    case '4': // Mostrar una matriz en números Romanos
       echo "\033[100m\nMostrando una matriz en números Romanos...\033[0m\n\n";
-      programaMatrices();
+      programaMatrices($unaColeccionMatrices);
       break;
       
-    case '5':
+    case '5': // Mostrar el resumen de una matriz
       echo "\033[100m\nMostrando el resumen de una matriz...\033[0m\n\n";
-      programaMatrices();
+      programaMatrices($unaColeccionMatrices);
       break;
       
-    case '6':
+    case '6': // Salir
       echo "Saliendo...\n\n";
       die;
     
     default:
-      // programaMatrices();
+      programaMatrices($unaColeccionMatrices);
       break;
   }
 }
