@@ -39,9 +39,13 @@
       // Verifica si la seleccion es numerica y dentro del rango de opciones validas (count de array de opciones)
       if (!is_numeric($seleccion)) {
         return menu('El valor ingresado no es un número.         '); // En caso de error, la función se llama a si misma (recursiva)
-      } elseif ($seleccion-1 < 0 || $seleccion > count(OPCIONES_MENU)) { //  cometnario
+      } elseif (!($seleccion >= 1 && $seleccion <= count(OPCIONES_MENU))) { //$seleccion no sea menor 1 o seleccion no sea mayor a 6  (negado)
         return menu('El número ingresado no es una opción válida.'); // Se hace con return sino devolvería NULL en caso de error, cortando el switch del programa principal.
       } else { 
         return $seleccion;
       }
     }
+
+
+
+  
