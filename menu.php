@@ -8,6 +8,7 @@
     'Mostrar el resumen de una matriz',
     'Salir'
   ];
+
 /**
  * Muestra un menú de opciones y solicita al usuario que seleccione una. 
  * 
@@ -19,6 +20,7 @@
  * 
  * @return string La selección válida del usuario, como una cadena de texto que representa el número de la opción del menú.
  */
+
   function menu($error = null) {
 
       // Muestra el mensaje de error si se pasa como parámetro (opcional)
@@ -33,13 +35,13 @@
       }
 
       $seleccion = trim(fgets(STDIN));
-      
+
       // Verifica si la seleccion es numerica y dentro del rango de opciones validas (count de array de opciones)
       if (!is_numeric($seleccion)) {
         return menu('El valor ingresado no es un número.         '); // En caso de error, la función se llama a si misma (recursiva)
-      } elseif ($seleccion-1 < 0 || $seleccion > count(OPCIONES_MENU)) {
+      } elseif ($seleccion-1 < 0 || $seleccion > count(OPCIONES_MENU)) { //  cometnario
         return menu('El número ingresado no es una opción válida.'); // Se hace con return sino devolvería NULL en caso de error, cortando el switch del programa principal.
-      } else {
+      } else { 
         return $seleccion;
       }
     }

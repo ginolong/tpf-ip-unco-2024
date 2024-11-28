@@ -2,10 +2,12 @@
   include 'menu.php';
 
   echo "\033c"; // limpiar consola (solo cmd/powershell)
-  programaMatrices(); // inicializar programa principal
+  
+  //obtenerColeccionMatrices();
+  programaMatrices();
 
-  /* comentario del obj del programa */
-  /* documentar variables con tipos de datos */
+  /* comentar obj del programa */
+  /* documentar función con tipos de datos */
 function programaMatrices() {
   $opcion = menu();
   switch ($opcion) {
