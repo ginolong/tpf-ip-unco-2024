@@ -1,13 +1,8 @@
 <?php
-  // Array de opciones de menu, expandir opciones aca
-  const OPCIONES_MENU = [
-    'Mostrar cantidad de matrices del programa',
-    'Mostrar una matriz',
-    'Ingresar una matriz NxM',
-    'Mostrar una matriz en números Romanos',
-    'Mostrar el resumen de una matriz',
-    'Salir'
-  ];
+// Datos y llamadas para pruebas de modulo:
+/*   include 'mostrarError.php';
+  const OPCIONES_MENU = ['Esta es la primera opcion de menu', 'Esta es otra opcion de menu', 'Aun otra opcion de menu', 'La ultima opcion de menu'];
+  echo "Eligió la opción " . menu(); */
 
 /**
  * Muestra un menú de opciones y solicita al usuario que seleccione una. 
@@ -20,7 +15,7 @@
  * 
  * @see mostrarError()
  */
-  function menu() {
+  function menu(): string {
 
       // Recorre el array de opciones para imprimirlo en consola dandole formato
       echo "\033[4mSeleccione una opción ingresando el \033[32mnúmero\033[0m\033[4m correspondiente:\033[0m \n\n";

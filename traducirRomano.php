@@ -23,7 +23,8 @@ function traducirMatrizANumerosRomanos(array $unaMatriz): array {
     }
   }
   return $unaMatriz;
-/* La alternativa a usar "&" en este caso es indicar manualmente la posición sobre la matriz original usando los indices:
+/* 
+La alternativa a usar "&" en este caso es indicar manualmente la posición sobre la matriz original usando los indices:
   foreach ($unaMatriz as $indiceMatriz => $fila) { 
     foreach ($fila as $indiceFila => $elemento) {
       $unaMatriz[$indiceMatriz][$indiceFila] = traducirNumeroARomano($elemento);
@@ -33,7 +34,7 @@ function traducirMatrizANumerosRomanos(array $unaMatriz): array {
 }
 
 /**
- * Convierte un número arábigo a su representación en números romanos.
+ * Convierte un número arábigo a su representación en números romanos. Utiliza guion (-) para el 0.
  *
  * Esta función toma un número entero y lo convierte a su equivalente
  * en números romanos, utilizando los símbolos romanos para unidades,

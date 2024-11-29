@@ -9,6 +9,16 @@
   include 'traducirRomano.php';
 
   echo "\033c"; // limpiar consola (solo cmd/powershell)
+
+  // Array de opciones de menu, expandir opciones aca:
+  const OPCIONES_MENU = [
+    /*1*/ 'Mostrar cantidad de matrices del programa',
+    /*2*/ 'Mostrar una matriz',
+    /*3*/ 'Ingresar una matriz NxM',
+    /*4*/ 'Mostrar una matriz en números Romanos',
+    /*5*/ 'Mostrar el resumen de una matriz',
+    /*6*/ 'Salir'
+  ];
   
   $coleccionMatrices = obtenerColeccionMatrices(); // precarga de matrices
   programaMatrices($coleccionMatrices);
@@ -44,8 +54,9 @@ function programaMatrices(array $unaColeccionMatrices): void {
         $matriz = buscarUnaMatriz('Mostrando una matriz en números Romanos...', $unaColeccionMatrices);
       }
       if ($matriz) {
-        $matriz = traducirMatrizANumerosRomanos($matriz); //reemplazar valores en $matriz con numeros romanos
+        $matrizEnRomanos = traducirMatrizANumerosRomanos($matriz); //reemplazar valores en $matriz con numeros romanos
         mostrarMatriz($matriz);
+        mostrarMatriz($matrizEnRomanos);
       }
       programaMatrices($unaColeccionMatrices);
       break;
