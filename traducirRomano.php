@@ -1,10 +1,10 @@
 <?php
 // Datos y llamadas para pruebas de modulo:
-/* 
-  $matriz1 = [[60, 61, 62], [71, 72, 73], [16, 17, 88]];
+
+  $matriz1 = [[60, 61, 62], [71, 72, 73], [16, 99, 88]];
   $traducida = traducirMatrizANumerosRomanos($matriz1);
   print_r($traducida); 
-*/
+
 
 /**
  * Traduce todos los números en una matriz a sus equivalentes en números romanos.
@@ -41,7 +41,7 @@ function traducirMatrizANumerosRomanos(array $unaMatriz): array {
  * en números romanos, utilizando los símbolos romanos para unidades,
  * decenas y centenas.
  *
- * @param int $unNumero El número arábigo a convertir (debe ser un entero positivo menor que 1000).
+ * @param int $unNumero El número arábigo a convertir (enteros positivos hasta 100).
  *
  * @return string La representación en números romanos del número de entrada.
  */
