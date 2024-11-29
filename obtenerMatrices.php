@@ -5,7 +5,7 @@
  * Esta función crea y devuelve un array que contiene cuatro matrices predefinidas.
  * Cada matriz es un array multidimensional con diferentes dimensiones y valores.
  *
- * @return array Un array que contiene cuatro matrices predefinidas.
+ * @return array Un array multidimensional que contiene cuatro matrices predefinidas.
  */
 function obtenerColeccionMatrices() {
   $matriz1 = [[1, 2, 34], [2, 23, 2], [34, 2, 15]];
@@ -14,5 +14,3 @@ function obtenerColeccionMatrices() {
   $matriz4 = [[1, 2, 3], [2, 4, 5], [3, 5, 6]]; // Matriz arbitraria
   return [$matriz1, $matriz2, $matriz3, $matriz4];
 }
-
-//print_r(obtenerColeccionMatrices());

@@ -14,13 +14,12 @@
  * 
  * Esta función presenta una lista de opciones al usuario, maneja la entrada del usuario, 
  * valida la selección y devuelve la opción elegida. Si se hace una selección inválida, 
- * se llama a sí misma recursivamente con un mensaje de error.
- * 
- * @param string $error Opcional. Si existe, muestra un mensaje de error. El valor por defecto es null.
+ * lo comunica al usuario utilizando la función `mostrarError()`.
  * 
  * @return string La selección válida del usuario, como una cadena de texto que representa el número de la opción del menú.
+ * 
+ * @see mostrarError()
  */
-
   function menu() {
 
       // Recorre el array de opciones para imprimirlo en consola dandole formato

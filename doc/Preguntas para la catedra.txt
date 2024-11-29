@@ -10,11 +10,6 @@ Ejemplo del formato del documento “Estructuras.pdf”? (de otro tp)
 Estimado de fecha de entrega y defensa del TP?
 	"Las fechas de entrega se publicaran en Pedco y Discord"
 
-Tests unitarios?
-	"Si implementa una función, debe asegurarse que funciona correctamente de
-	forma individual (test o prueba unitaria), es decir, testear cada módulo con
-	distintos valores de parámetros y determinar si la salida es la esperada"
-
 ----------------------------------------------------------------
 PREGUNTAS SOBRE EL ENUNCIADO:
 
@@ -24,5 +19,3 @@ PREGUNTAS SOBRE EL ENUNCIADO:
 
 ----------------------------------------------------------------
 PREGUNTAS SOBRE CODIGO:
-
-Cuando se define una funcion dentro de un modulo (no param o return), se debe indicar el tipo de dato con comentario? (como en pseudo)

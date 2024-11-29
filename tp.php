@@ -1,9 +1,12 @@
 <?php
+  declare(strict_types=1); // deshabilita conversiones automáticas de datos
+
   include 'menu.php';
   include 'obtenerMatrices.php';
   include 'mostrarMatriz.php';
   include 'buscarUnaMatriz.php';
   include 'mostrarError.php';
+  include 'traducirRomano.php';
 
   echo "\033c"; // limpiar consola (solo cmd/powershell)
   
@@ -12,16 +15,16 @@
 
   /* comentar obj del programa */
   /* documentar función */
-function programaMatrices($unaColeccionMatrices) {
+function programaMatrices(array $unaColeccionMatrices): void {
   $opcion = menu(); // STRING
-  $matriz = []; // ARRAY bidimensional
+  $matriz = []; // ARRAY (2D)
   switch ($opcion) {
-    case '1': // Mostrar cantidad de matrices del programa
+    case '1':
       echo "\033[100m\nLa cantidad de matrices del programa es " . count($unaColeccionMatrices) . ".\033[0m\n\n";
       programaMatrices($unaColeccionMatrices); // recursividad
       break;
       
-    case '2': // Mostrar una matriz
+    case '2':
       while (!$matriz) { // se repite mientras no se devuelva una matriz
         $matriz = buscarUnaMatriz('Mostrando una matriz...', $unaColeccionMatrices);
       }
@@ -31,22 +34,33 @@ function programaMatrices($unaColeccionMatrices) {
       programaMatrices($unaColeccionMatrices);
       break;
       
-    case '3': // Ingresar una matriz NxM
+    case '3':
       echo "\033[100m\nIngresando una matriz NxM...\033[0m\n\n";
       programaMatrices($unaColeccionMatrices);
       break;
       
-    case '4': // Mostrar una matriz en números Romanos
-      echo "\033[100m\nMostrando una matriz en números Romanos...\033[0m\n\n";
+    case '4':
+      while (!$matriz) {
+        $matriz = buscarUnaMatriz('Mostrando una matriz en números Romanos...', $unaColeccionMatrices);
+      }
+      if ($matriz) {
+        $matriz = traducirMatrizANumerosRomanos($matriz); //reemplazar valores en $matriz con numeros romanos
+        mostrarMatriz($matriz);
+      }
       programaMatrices($unaColeccionMatrices);
       break;
       
-    case '5': // Mostrar el resumen de una matriz
-      echo "\033[100m\nMostrando el resumen de una matriz...\033[0m\n\n";
+    case '5':
+      while (!$matriz) {
+        $matriz = buscarUnaMatriz('Mostrando el resumen de una matriz...', $unaColeccionMatrices);
+      }
+      if ($matriz) {
+        // generar resumen de $matriz y mostrarlo
+      }
       programaMatrices($unaColeccionMatrices);
       break;
       
-    case '6': // Salir
+    case '6':
       echo "Saliendo...\n\n";
       die;
     
