@@ -1,6 +1,6 @@
 <?php
 // Datos y llamadas para pruebas de modulo:
-/* $matriz1 = [[60, 61, 62], [71, 72, 73], [16, 17, 18]];
+/* $matriz1 = [[-60, 61, 62], [71, 72, 73], [16, 17, 18]];
 $traducida = traducirMatrizANumerosRomanos($matriz1);
 print_r($traducida); */
 
@@ -53,6 +53,10 @@ function traducirNumeroARomano(int $unNumero): string {
   $decenasIndex = ($unNumero % 100) / 10;
   $centenasIndex = ($unNumero % 1000) / 100;
 
-  $romano = $centenas[$centenasIndex]. $decenas[$decenasIndex]. $unidades[$unidadesIndex];
+  if ($unNumero == 0) {
+    $romano = '-';
+  } else {
+    $romano = $centenas[$centenasIndex]. $decenas[$decenasIndex]. $unidades[$unidadesIndex];
+  }
   return $romano;
 }
