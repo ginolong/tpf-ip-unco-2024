@@ -1,16 +1,14 @@
 <?php
-  declare(strict_types=1); // deshabilita conversiones automáticas de datos
+  declare(strict_types=1); // deshabilita conversiones automáticas de datos y fuerza control de tipos SOLO en funciones
 
   include 'menu.php';
   include 'obtenerMatrices.php';
   include 'mostrarMatriz.php';
   include 'buscarUnaMatriz.php';
-  include 'mostrarError.php';
   include 'traducirRomano.php';
+  include 'validaciones.php';
 
-  echo "\033c"; // limpiar consola (solo cmd/powershell)
-
-  // Array de opciones de menu, expandir opciones aca:
+  // Constante array de opciones de menu, expandir opciones aca:
   const OPCIONES_MENU = [
     /*1*/ 'Mostrar cantidad de matrices del programa',
     /*2*/ 'Mostrar una matriz',
@@ -20,63 +18,58 @@
     /*6*/ 'Salir'
   ];
   
+  echo "\033c"; // limpiar consola (solo cmd/powershell)
   $coleccionMatrices = obtenerColeccionMatrices(); // precarga de matrices
   programaMatrices($coleccionMatrices);
 
-  /* comentar obj del programa */
-  /* documentar función */
+/* comentar obj del programa */
+/* documentar función */
 function programaMatrices(array $unaColeccionMatrices): void {
   $opcion = menu(); // STRING
   $matriz = []; // ARRAY (2D)
   switch ($opcion) {
     case '1':
       echo "\033[100m\nLa cantidad de matrices del programa es " . count($unaColeccionMatrices) . ".\033[0m\n\n";
-      programaMatrices($unaColeccionMatrices); // recursividad
       break;
       
     case '2':
-      while (!$matriz) { // se repite mientras no se devuelva una matriz
-        $matriz = buscarUnaMatriz('Mostrando una matriz...', $unaColeccionMatrices);
+      while (!$matriz) { // Se repite mientras no se devuelva una matriz
+        $matriz = buscarUnaMatriz('Para mostrar una matriz', $unaColeccionMatrices);
       }
-      if ($matriz) {
-        mostrarMatriz($matriz);
-      }
-      programaMatrices($unaColeccionMatrices);
+      mostrarMatriz($matriz);
       break;
       
     case '3':
       echo "\033[100m\nIngresando una matriz NxM...\033[0m\n\n";
-      programaMatrices($unaColeccionMatrices);
       break;
       
     case '4':
       while (!$matriz) {
-        $matriz = buscarUnaMatriz('Mostrando una matriz en números Romanos...', $unaColeccionMatrices);
+        $matriz = buscarUnaMatriz('Para mostrar una matriz en números romanos', $unaColeccionMatrices);
       }
-      if ($matriz) {
-        $matrizEnRomanos = traducirMatrizANumerosRomanos($matriz); //reemplazar valores en $matriz con numeros romanos
-        mostrarMatriz($matriz);
-        mostrarMatriz($matrizEnRomanos);
-      }
-      programaMatrices($unaColeccionMatrices);
+      $matrizEnRomanos = traducirMatrizANumerosRomanos($matriz);
+      mostrarMatriz($matriz);
+      mostrarMatriz($matrizEnRomanos);
       break;
       
     case '5':
       while (!$matriz) {
-        $matriz = buscarUnaMatriz('Mostrando el resumen de una matriz...', $unaColeccionMatrices);
+        $matriz = buscarUnaMatriz('Para mostrar el resumen de una matriz', $unaColeccionMatrices);
       }
-      if ($matriz) {
-        // generar resumen de $matriz y mostrarlo
-      }
-      programaMatrices($unaColeccionMatrices);
+      // generar resumen de $matriz y mostrarlo con print_r (el enunciado pide print_r)
       break;
       
     case '6':
-      echo "Saliendo...\n\n";
+      echo "Saliendo";
+      usleep(250000);
+      echo".";
+      usleep(250000);
+      echo".";
+      usleep(250000);
+      echo".";
+      usleep(500000);
+      echo "\033c";
       die;
-    
-    default:
-      programaMatrices($unaColeccionMatrices);
-      break;
   }
+  programaMatrices($unaColeccionMatrices); // recursividad
 }

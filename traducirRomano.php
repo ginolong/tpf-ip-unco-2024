@@ -1,8 +1,10 @@
 <?php
 // Datos y llamadas para pruebas de modulo:
-/* $matriz1 = [[-60, 61, 62], [71, 72, 73], [16, 17, 18]];
-$traducida = traducirMatrizANumerosRomanos($matriz1);
-print_r($traducida); */
+/* 
+  $matriz1 = [[60, 61, 62], [71, 72, 73], [16, 17, 88]];
+  $traducida = traducirMatrizANumerosRomanos($matriz1);
+  print_r($traducida); 
+*/
 
 /**
  * Traduce todos los números en una matriz a sus equivalentes en números romanos.
@@ -23,8 +25,7 @@ function traducirMatrizANumerosRomanos(array $unaMatriz): array {
     }
   }
   return $unaMatriz;
-/* 
-La alternativa a usar "&" en este caso es indicar manualmente la posición sobre la matriz original usando los indices:
+/* La alternativa a usar "&" en este caso es indicar manualmente la posición sobre la matriz original usando los indices:
   foreach ($unaMatriz as $indiceMatriz => $fila) { 
     foreach ($fila as $indiceFila => $elemento) {
       $unaMatriz[$indiceMatriz][$indiceFila] = traducirNumeroARomano($elemento);
@@ -45,19 +46,20 @@ La alternativa a usar "&" en este caso es indicar manualmente la posición sobre
  * @return string La representación en números romanos del número de entrada.
  */
 function traducirNumeroARomano(int $unNumero): string {
-  $romano = '';
-  $unidades = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
-  $decenas = ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'];
-  $centenas = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'];
+  $romano = ''; // STRING
+  $unidades = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX']; // ARRAY
+  $decenas = ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC']; //ARRAY
+  $centenas = ['', 'C'];  // ARRAY
 
+  // Descomponer el numero en u-d-c
   $unidadesIndex = $unNumero % 10;
   $decenasIndex = ($unNumero % 100) / 10;
   $centenasIndex = ($unNumero % 1000) / 100;
 
   if ($unNumero == 0) {
-    $romano = '-';
+    $romano = '-'; // Caso único para dígito inexistente en números romanos
   } else {
-    $romano = $centenas[$centenasIndex]. $decenas[$decenasIndex]. $unidades[$unidadesIndex];
+    $romano = $centenas[$centenasIndex]. $decenas[$decenasIndex]. $unidades[$unidadesIndex]; // Concatenar el string de return
   }
   return $romano;
 }

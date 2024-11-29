@@ -18,17 +18,11 @@ print_r(buscarUnaMatriz($tarea, $coleccion)); */
  * @return array La matriz seleccionada de la colección, o una matriz vacía si la entrada no es válida.
  */
 function buscarUnaMatriz(string $laTarea, array $laColeccionMatrices): array {
-  echo "\033[100m\n$laTarea\033[0m\n";
-  echo "\033[4mEscriba el \033[32mnúmero\033[0m\033[4m de matriz (1 a " . count($laColeccionMatrices) . ") o escriba \033[33mvolver (no implementado)\033[0m\033[4m para retornar al menú principal:\033[0m \n";
+  echo "\033[4m$laTarea escriba el \033[32mnúmero\033[0m\033[4m de matriz (1 a " . count($laColeccionMatrices) . "), o escriba \033[33mvolver (no implementado)\033[0m\033[4m para retornar al menú principal:\033[0m \n";
   $seleccion = trim(fgets(STDIN));
   $unaMatriz = [];
-  /* CAMBIAR ESTO A UNA FUNCION DE VALIDACION, SE REPITE EN menu.php  */
-  if (!is_numeric($seleccion)) {
-    mostrarError('El valor ingresado no es un número.         ');
-  } elseif (!($seleccion >= 1 && $seleccion <= count($laColeccionMatrices))) {
-    mostrarError('El número ingresado no es una opción válida.');
-  /* CAMBIAR ESTO A UNA FUNCION DE VALIDACION, SE REPITE EN menu.php  */
-  } else {
+
+  if (validarIndiceArray($seleccion, $laColeccionMatrices)) {
     $unaMatriz = $laColeccionMatrices[$seleccion-1];
   }
   return $unaMatriz;

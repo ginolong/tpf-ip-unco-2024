@@ -13,7 +13,7 @@ Estimado de fecha de entrega y defensa del TP?
 ----------------------------------------------------------------
 PREGUNTAS SOBRE EL ENUNCIADO:
 
-
+Hay limite de NxM en el ingreso de una matriz?
 
 
 
