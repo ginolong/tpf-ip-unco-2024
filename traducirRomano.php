@@ -1,9 +1,9 @@
 <?php
 // Datos y llamadas para pruebas de modulo:
-
+/* 
   $matriz1 = [[60, 61, 62], [71, 72, 73], [16, 99, 88]];
   $traducida = traducirMatrizANumerosRomanos($matriz1);
-  print_r($traducida); 
+  print_r($traducida);  */
 
 
 /**
