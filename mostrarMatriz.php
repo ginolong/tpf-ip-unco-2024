@@ -1,14 +1,14 @@
 <?php
 // Datos y llamadas para pruebas de modulo:
 /* $matriz3 = [["LXXXVIII", 100, 20, 61, 9], [2, 0, 2, 13, 9], [25, "", 7, 7, 9], [1, 3, 9, 11, 9], [22, 100, 20, "", 9], ["-", 100, "LXXXVIII", 61, ""], ["LXXXVIII", 100, 20, 61, 9]];
-mostrarMatriz($matriz3); */
+mostrarMatriz($matriz3);*/
 
 /**
  * Muestra una matriz con formato de salida, alternando colores de fila.
  *
  * Esta función recibe un array bidimensional (matriz) y lo imprime
  * con un diseño formateado. Cada elemento se centra dentro de una celda 
- * de ancho fijo utilizando las funciones `str_pad()` y `printf()` de PHP.
+ * de ancho fijo utilizando la funcion `str_pad()` de PHP.
  * 
  * Las filas se colorean alternadamente mediante codigos ANSI para mejorar la legibilidad,
  * tambien se imprimen lineas divisoras entre celdas para darle un formato de cuadricula atenuado.
@@ -19,7 +19,6 @@ mostrarMatriz($matriz3); */
  * 
  * @see str_pad()
  * 
- * @see printf()
  */
 function mostrarMatriz(array $unaMatriz): void {
   echo "\n";
@@ -36,7 +35,7 @@ function mostrarMatriz(array $unaMatriz): void {
     foreach ($fila as $elemento) {
       $color = ($indiceFila % 2 == 0) ? "\033[1;36m" : "\033[1m"; // Alterna colores (cod. ANSI) en función del índice de la fila
       $elementoCentrado = str_pad($elemento, 8, " ", STR_PAD_BOTH); // define ancho de celda 8, para acomodar el numero romano mas largo posible en el programa: 88=LXXXVIII
-      printf("$barraV$color%s\033[0m", $elementoCentrado); // Alineación centrada con %s
+      echo ("$barraV$color$elementoCentrado\033[0m" );
     }
     echo $barraV . "\n"; // barra y salto de línea al final de fila
   }
