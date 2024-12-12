@@ -3,6 +3,8 @@
 
   include 'menu.php';
   include 'obtenerMatrices.php';
+  include "solicitarEnteroPositivo.php";
+  include "incorporaMatriz.php";
   include 'mostrarMatriz.php';
   include 'buscarUnaMatriz.php';
   include 'traducirRomano.php';
@@ -41,6 +43,16 @@ function programaMatrices(array $unaColeccionMatrices): void {
       
     case '3':
       echo "\033[100m\nIngresando una matriz NxM...\033[0m\n\n";
+      $filas = 0;
+      $columnas = 0;
+      while (!$filas) { //repite mientras no sea un entero positivo//
+        $filas = solicitarEnteroPositivo("filas"); //pedir filas (N) y valida que N sea integer positivo)//
+      }
+      while (!$columnas) { //repite mientras no sea un entero positivo//
+        $columnas = solicitarEnteroPositivo("columnas"); //pedir columnas (M) y valida que M sea integer positivo)//
+      }
+      $unaColeccionMatrices = incorporaMatriz($unaColeccionMatrices, $filas, $columnas);
+      echo "\033[42m\nSe ingresó una matriz de $filas filas x $columnas columnas\033[0m\n\n";
       break;
       
     case '4':

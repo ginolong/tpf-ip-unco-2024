@@ -15,7 +15,13 @@ PREGUNTAS SOBRE EL ENUNCIADO:
 
 Hay limite de NxM en el ingreso de una matriz?
 
+Es una matriz tener una fila y una columna???
 
+
+
+Se puede usar el include
+
+que nos aclaren el archivo estructuras.pdf
 
 ----------------------------------------------------------------
 PREGUNTAS SOBRE CODIGO:
