@@ -12,6 +12,15 @@ function validarIndiceArray(string $unIndice, array $unArray): bool {
   return $valido;
 }
 
+function validarSioNo(string $rta): bool {
+  $valido = true;
+  if (!($rta === "s" || $rta === "n")) {
+    $valido = false;
+    mostrarError ("El valor ingresado $rta no es una opción valida. Por favor, ingrese (s) o (n)");
+  }
+    return $valido;
+  }
+
 function mostrarError($mensajeError) {
   echo "\033[1;41m        ERROR: $mensajeError        \033[0m\n";
 }
@@ -27,3 +36,4 @@ function validarEnteroPositivo(string $unDato): bool {
   }
   return $valido;
 }
+

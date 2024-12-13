@@ -9,6 +9,7 @@
   include 'buscarUnaMatriz.php';
   include 'traducirRomano.php';
   include "resumenMatriz.php";
+  include "deseaContinuar.php";
   include 'validaciones.php';
 
   //La constante OPCIONES_MENU es un array inmodificable que se repite y se utiliza en la función MENU, para evitar el envio como parametro o la definicion de una variable en cada ejecucion//
@@ -42,6 +43,10 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '2':
+      echo "\033[100m\nVa a visualizar una matriz...\033[0m\n\n";
+      if (!deseaContinuar()) {
+        break;
+      }
       while (!$matriz) { // Se repite mientras no se devuelva una matriz
         $matriz = buscarUnaMatriz('Para mostrar una matriz', $unaColeccionMatrices);
       }
@@ -49,7 +54,10 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '3':
-      echo "\033[100m\nIngresando una matriz NxM...\033[0m\n\n";
+      echo "\033[100m\nVa a ingresar una nueva matriz NxM...\033[0m\n\n";
+      if (!deseaContinuar()) {
+        break;
+      }
       $filas = 0;
       $columnas = 0;
       while (!$filas) { //repite mientras no sea un entero positivo//
@@ -63,6 +71,10 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '4':
+      echo "\033[100m\nVa a visualizar una matriz en números Romanos...\033[0m\n\n";
+      if (!deseaContinuar()) {
+        break;
+      }
       while (!$matriz) {
         $matriz = buscarUnaMatriz('Para mostrar una matriz en números romanos', $unaColeccionMatrices);
       }
@@ -72,18 +84,26 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '5':
+      echo "\033[100m\nVa a visualizar el resumen de una matriz...\033[0m\n\n";
+      if (!deseaContinuar()) {
+        break;
+      }
       while (!$matriz) {
         $matriz = buscarUnaMatriz('Para mostrar el resumen de una matriz', $unaColeccionMatrices);
       }
       mostrarMatriz($matriz);
         $resumen = resumenMatriz($matriz); // generar resumen de $matriz//
         foreach ($resumen as $indice => $opcion) { // Recorre la constante array de opciones para imprimirlo en consola dandole formato
-          echo "\033[36m". ($indice). "==>\033[0m\033[1m $opcion\033[0m \n\n";
+          echo "\033[36m". ($indice). " ==>\033[0m\033[1m $opcion\033[0m \n\n";
         }
         print_r ($resumen); //muestra con print_r el array asociativo//
       break;
 
     case '6':
+      echo "\033[100m\nVa a salir del Programa Matrices...\033[0m\n\n";
+      if (!deseaContinuar()) {
+        break;
+      }
       echo "Saliendo";
       usleep(250000);
       echo".";

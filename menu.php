@@ -16,7 +16,7 @@
  * @see mostrarError()
  */
 function menu(): string {
-  echo "\033[4mSeleccione una opción del menú ingresando el \033[32mnúmero\033[0m\033[4m correspondiente:\033[0m \n\n";
+  echo "\n\033[4mSeleccione una opción del menú ingresando el \033[32mnúmero\033[0m\033[4m correspondiente:\033[0m \n\n";
   foreach (OPCIONES_MENU as $indice => $opcion) { // Recorre la constante array de opciones para imprimirlo en consola dandole formato
     echo "\t \033[1;92m". ($indice+1). "\033[0m\033[90m)\033[0m $opcion \n\n";
   }
