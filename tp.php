@@ -8,10 +8,11 @@
   include 'mostrarMatriz.php';
   include 'buscarUnaMatriz.php';
   include 'traducirRomano.php';
+  include "resumenMatriz.php";
   include 'validaciones.php';
 
-  // Constante array de opciones de menu, expandir opciones aca:
-  const OPCIONES_MENU = [
+  //La constante OPCIONES_MENU es un array inmodificable que se repite y se utiliza en la función MENU, para evitar el envio como parametro o la definicion de una variable en cada ejecucion//
+  const OPCIONES_MENU = [ 
     /*1*/ 'Mostrar cantidad de matrices del programa',
     /*2*/ 'Mostrar una matriz',
     /*3*/ 'Ingresar una matriz NxM',
@@ -24,8 +25,14 @@
   $coleccionMatrices = obtenerColeccionMatrices(); // precarga de matrices
   programaMatrices($coleccionMatrices);
 
-/* comentar obj del programa */
-/* documentar función */
+/**
+ * Esta función representa el bucle principal del programa para administrar una colección de matrices de manera recursiva.
+ * Gestiona la entrada del usuario para diferentes operaciones como mostrar la cantidad de matrices, mostrar una matriz específica,
+ * ingresar una nueva matriz, mostrar una matriz en números romanos, mostrar un resumen de una matriz y salir.
+ *
+ * @param array $unaColeccionMatrices La colección de matrices que se va a administrar.
+ * @return void esta funcion tiene un retorno vacio
+ */
 function programaMatrices(array $unaColeccionMatrices): void {
   $opcion = menu(); // STRING
   $matriz = []; // ARRAY (2D)
@@ -33,14 +40,14 @@ function programaMatrices(array $unaColeccionMatrices): void {
     case '1':
       echo "\033[100m\nLa cantidad de matrices del programa es " . count($unaColeccionMatrices) . ".\033[0m\n\n";
       break;
-      
+
     case '2':
       while (!$matriz) { // Se repite mientras no se devuelva una matriz
         $matriz = buscarUnaMatriz('Para mostrar una matriz', $unaColeccionMatrices);
       }
       mostrarMatriz($matriz);
       break;
-      
+
     case '3':
       echo "\033[100m\nIngresando una matriz NxM...\033[0m\n\n";
       $filas = 0;
@@ -54,7 +61,7 @@ function programaMatrices(array $unaColeccionMatrices): void {
       $unaColeccionMatrices = incorporaMatriz($unaColeccionMatrices, $filas, $columnas);
       echo "\033[42m\nSe ingresó una matriz de $filas filas x $columnas columnas\033[0m\n\n";
       break;
-      
+
     case '4':
       while (!$matriz) {
         $matriz = buscarUnaMatriz('Para mostrar una matriz en números romanos', $unaColeccionMatrices);
@@ -63,14 +70,19 @@ function programaMatrices(array $unaColeccionMatrices): void {
       mostrarMatriz($matriz);
       mostrarMatriz($matrizEnRomanos);
       break;
-      
+
     case '5':
       while (!$matriz) {
         $matriz = buscarUnaMatriz('Para mostrar el resumen de una matriz', $unaColeccionMatrices);
       }
-      // generar resumen de $matriz y mostrarlo con print_r (el enunciado pide print_r)
+      mostrarMatriz($matriz);
+        $resumen = resumenMatriz($matriz); // generar resumen de $matriz//
+        foreach ($resumen as $indice => $opcion) { // Recorre la constante array de opciones para imprimirlo en consola dandole formato
+          echo "\033[36m". ($indice). "==>\033[0m\033[1m $opcion\033[0m \n\n";
+        }
+        print_r ($resumen); //muestra con print_r el array asociativo//
       break;
-      
+
     case '6':
       echo "Saliendo";
       usleep(250000);
@@ -85,3 +97,5 @@ function programaMatrices(array $unaColeccionMatrices): void {
   }
   programaMatrices($unaColeccionMatrices); // recursividad
 }
+
+
