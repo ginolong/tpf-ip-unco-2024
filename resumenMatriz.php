@@ -1,11 +1,10 @@
 <?PHP
 // Datos y llamadas para pruebas de modulo:
-//$unaMatriz  = [[1, 2, 34, 1], [2, 34, 2, 0], [34, 2, 15, 8]];
-/*$cantFilas = 3;
+/* $unaMatriz  = [[1, 2, 34, 1], [2, 34, 2, 0], [34, 2, 15, 8]];
+$cantFilas = 3;
 $cantColumnas = 4;
-$coleccion = incorporaMatriz ($coleccion, $cantFilas, $cantColumnas);*/
-//$matriz = resumenMatriz ($unaMatriz);
-//print_r ($matriz);
+$matriz = resumenMatriz ($unaMatriz);
+print_r ($matriz); */
 
 
 /**
@@ -42,14 +41,15 @@ function resumenMatriz(array $unaMatriz): array {
               }
           }
       }
-      $promedio = number_format($suma / ($fila * $columna),2); //calcula el promedio y redondea a 2 decimales//
+      $promedio = round($suma / ($fila * $columna),2); //calcula el promedio y redondea a 2 decimales//
+      var_dump($promedio);
       $matrizResumen = [
-          'dimension1' => $fila,
-          'dimension2' => $columna,
-          'suma' => $suma,
-          'promedio' => $promedio,
-          'cuadrada' => $cuadrada,
-          'simetrica' => $simetrica
+          'dimension1' => $fila,    // INT
+          'dimension2' => $columna, // INT
+          'suma' => $suma,          // INT
+          'promedio' => $promedio,  // FLOAT
+          'cuadrada' => $cuadrada,  // STRING
+          'simetrica' => $simetrica // STRING
       ];
       return $matrizResumen;
   }
