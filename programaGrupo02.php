@@ -2,7 +2,7 @@
   declare(strict_types=1); // deshabilita conversiones automáticas de datos y fuerza control de tipos SOLO en funciones
 
   include 'menu.php';
-  include 'obtenerMatrices.php';
+  include 'obtenerColeccionMatrices.php';
   include "solicitarEnteroPositivo.php";
   include "incorporaMatriz.php";
   include 'mostrarMatriz.php';
