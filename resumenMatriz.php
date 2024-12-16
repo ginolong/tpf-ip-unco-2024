@@ -42,7 +42,6 @@ function resumenMatriz(array $unaMatriz): array {
           }
       }
       $promedio = round($suma / ($fila * $columna),2); //calcula el promedio y redondea a 2 decimales//
-      var_dump($promedio);
       $matrizResumen = [
           'dimension1' => $fila,    // INT
           'dimension2' => $columna, // INT
