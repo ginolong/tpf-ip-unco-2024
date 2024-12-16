@@ -12,7 +12,7 @@
   include "deseaContinuar.php";
   include 'validaciones.php';
 
-  //La constante OPCIONES_MENU es un array inmodificable que se repite y se utiliza en la función MENU, para evitar el envio como parametro o la definicion de una variable en cada ejecucion//
+  //La constante OPCIONES_MENU es un array inmodificable que se repite y se utiliza en la función MENU, para evitar el envió como parámetro o la definición de una variable en cada ejecución//
   const OPCIONES_MENU = [ 
     /*1*/ 'Mostrar cantidad de matrices del programa',
     /*2*/ 'Mostrar una matriz',

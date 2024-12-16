@@ -21,7 +21,7 @@ function menu(): string {
     echo "\t \033[1;92m". ($indice+1). "\033[0m\033[90m)\033[0m $opcion \n\n";
   }
 
-  $seleccion = trim(fgets(STDIN));
+  $seleccion = trim(fgets(STDIN)); // STRING
   validarIndiceArray($seleccion, OPCIONES_MENU); // Verifica si la selección es numérica y dentro del rango de opciones validas (count de array de opciones). El retorno no se usa en esta función.
 
   return $seleccion;

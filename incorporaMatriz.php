@@ -5,12 +5,14 @@ $cantFilas = 3;
 $cantColumnas = 4;
 $coleccion = incorporaMatriz ($coleccion, $cantFilas, $cantColumnas);
 print_r ($coleccion);*/
+
+
 /**
- * Incopora una nueva matriz con valores random entre 0 y 100, a la coleccion de matrices ($unaColeccion).
+ * Incorpora una nueva matriz con valores random entre 0 y 100, a la colección de matrices ($unaColeccion).
  *
- * Recibe como parametro una coleccion de matrices y le agrega una nueva matriz NxM con valores random entre 0 y 100
+ * Recibe como parámetro una colección de matrices y le agrega una nueva matriz NxM con valores random entre 0 y 100
  * 
- * Tambien recibe como parametro la cantidad de filas (N) y de columnas (M) de la nueva matriz
+ * También recibe como parámetro la cantidad de filas (N) y de columnas (M) de la nueva matriz
  * 
  * @param array $unaColeccion
  * 
@@ -22,9 +24,8 @@ print_r ($coleccion);*/
  * 
  */
 function incorporaMatriz(array $unaColeccion, int $cantFilas, int $cantColumnas): array {
-    $nuevaMatriz = []; //inicialializamos la nueva matriz vacia//
+    $nuevaMatriz = []; // ARRAY 2D inicializamos la nueva matriz vacia//
     for ($i = 0; $i < $cantFilas; $i++) {
-      $nuevaMatriz[$i] = []; //inicializamos cada fila de la nueva matriz vacia//
       for ($j = 0; $j < $cantColumnas; $j++) {
         $nuevaMatriz[$i][$j] = rand(0, 100); //agregamos un numero random entre 0 y 100 a cada celda de la nueva matriz//
       }

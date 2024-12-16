@@ -12,10 +12,12 @@
  * @return array La colección de 4 matrices de enteros.
  */
 function obtenerColeccionMatrices(): array {
-  $coleccion[0] = [[1, 2, 34], [2, 23, 2], [34, 2, 15]];
+  $coleccion[0] = [[1, 2, 34], [2, 23, 2], [34, 2, 15]]; // ARRAY 2D
   $coleccion[1] = [[0, 2, 61], [2, 0, 2], [25, 2, 7], [1, 2, 40]];
   $coleccion[2]= [[0, 2, 20, 61], [2, 0, 2, 13], [25, 2, 7, 7], [1, 2, 9, 11]];
-  $coleccion[3] = [[1, 2, 3], [2, 4, 5], [3, 5, 6]]; // Matriz arbitraria
+  $coleccion[3] = [[1, 2, 3], [2, 4, 5], [3, 5, 6]]; // Matriz arbitraria simétrica
   //$coleccion[4] = [];
+  //$coleccion[5] = [];
+  //$coleccion[6] = [];
   return $coleccion;
 }

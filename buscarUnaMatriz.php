@@ -19,12 +19,10 @@ print_r(buscarUnaMatriz($tarea, $coleccion)); */
  */
 function buscarUnaMatriz(string $laTarea, array $laColeccionMatrices): array {
   echo "\033[4m$laTarea escriba el \033[32mnúmero\033[0m\033[4m de matriz (1 a " . count($laColeccionMatrices) . ")\033[0m \n";
-  $seleccion = trim(fgets(STDIN));
-  $unaMatriz = [];
-
+  $seleccion = trim(fgets(STDIN)); // STRING
+  $unaMatriz = []; // ARRAY 2D
   if (validarIndiceArray($seleccion, $laColeccionMatrices)) {
     $unaMatriz = $laColeccionMatrices[$seleccion-1];
   }
   return $unaMatriz;
 }
-//*comentario al pedo*//

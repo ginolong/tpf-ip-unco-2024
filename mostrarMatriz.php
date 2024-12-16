@@ -23,11 +23,7 @@ mostrarMatriz($matriz3);*/
 function mostrarMatriz(array $unaMatriz): void {
   echo "\n";
   $barraV = "\033[2m|\033[0m"; // STRING barra divisora vertical | atenuada
-  $linea = ""; // STRING
-  for ($i=0; $i < count($unaMatriz[0]); $i++) { 
-    $linea = $linea . "|--------"; // concatena tantas veces como indices tenga una fila (son todas iguales)
-  }
-  $lineaDivisora = "\033[2m" . $linea . "|\033[0m\n"; // STRING linea divisora atenuada
+  $lineaDivisora = concatenaLineaDivisora($unaMatriz); // STRING linea divisora atenuada
 
   foreach ($unaMatriz as $indiceFila => $fila) {
     echo $lineaDivisora; // linea divisora inicial y entrefila
@@ -35,9 +31,30 @@ function mostrarMatriz(array $unaMatriz): void {
     foreach ($fila as $elemento) {
       $color = ($indiceFila % 2 == 0) ? "\033[1;36m" : "\033[1m"; // Alterna colores (cod. ANSI) en función del índice de la fila
       $elementoCentrado = str_pad($elemento, 8, " ", STR_PAD_BOTH); // define ancho de celda 8, para acomodar el numero romano mas largo posible en el programa: 88=LXXXVIII
-      echo ("$barraV$color$elementoCentrado\033[0m" );
+      echo ("$barraV$color$elementoCentrado\033[0m" ); // | + colorANSI + elemento
     }
     echo $barraV . "\n"; // barra y salto de línea al final de fila
   }
   echo $lineaDivisora . "\n"; // linea divisora final
 }
+
+/**
+ * Concatena una línea divisora para una matriz dada.
+ *
+ * Esta función toma un array bidimensional (matriz) como entrada y devuelve una cadena
+ * que representa una línea divisora. La línea divisora está formateada con códigos de escape ANSI
+ * para crear una apariencia atractiva y atenuada. La longitud de la línea divisora está determinada
+ * por el número de columnas en la matriz de entrada.
+ *
+ * @param array $otraMatriz Un array bidimensional que representa la matriz.
+ *
+ * @return string Una cadena que representa la línea divisora para la matriz dada.
+ */
+function concatenaLineaDivisora (array $otraMatriz): string {
+  $linea = ""; // STRING
+  for ($i=0; $i < count($otraMatriz[0]); $i++) { 
+    $linea = $linea . "|--------"; // concatena tantas veces como índices tenga una fila (son todas iguales)
+  }
+  return "\033[2m" . $linea. "|\033[0m\n"; // STRING línea divisora atenuada
+}
+
