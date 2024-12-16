@@ -4,13 +4,14 @@
  *
  * @return bool true si el usuario desea volver al menú principal, false en caso contrario.
  */
-function deseaContinuar(): bool {
+function deseaContinuar(string $opcion): bool {
   $respuestaValida = True; // BOOL
   do {
-  echo "\n\033[103;30;3m¿Desea continuar con la opción seleccionada? (s/n):\033[0m\n";
-  $respuesta = trim(fgets(STDIN)); // STRING
-  $respuesta = strtolower($respuesta);
-  $respuestaValida = validarSioNo($respuesta); // BOOL
+    echo "\033[100m\n$opcion\033[0m\n"; // mensaje de opción seleccionada
+    echo "\n\033[103;30;3m¿Desea continuar con la opción seleccionada? (s/n):\033[0m\n";
+    $respuesta = trim(fgets(STDIN)); // STRING
+    $respuesta = strtolower($respuesta);
+    $respuestaValida = validarSioNo($respuesta); // BOOL
   } while (!$respuestaValida);
   return ($respuesta == "s") ? true : false;
 }

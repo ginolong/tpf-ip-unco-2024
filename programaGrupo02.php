@@ -11,6 +11,7 @@
   include "resumenMatriz.php";
   include "deseaContinuar.php";
   include 'validaciones.php';
+  include 'salir.php';
 
   //La constante OPCIONES_MENU es un array inmodificable que se repite y se utiliza en la función MENU, para evitar el envió como parámetro o la definición de una variable en cada ejecución//
   const OPCIONES_MENU = [ 
@@ -43,8 +44,7 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '2':
-      echo "\033[100m\nVa a visualizar una matriz...\033[0m\n\n";
-      if (!deseaContinuar()) {
+      if (!deseaContinuar('Va a visualizar una matriz...')) {
         break;
       }
       while (!$matriz) { // Se repite mientras no se devuelva una matriz
@@ -54,8 +54,7 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '3':
-      echo "\033[100m\nVa a ingresar una nueva matriz NxM...\033[0m\n\n";
-      if (!deseaContinuar()) {
+      if (!deseaContinuar('Va a ingresar una nueva matriz NxM...')) {
         break;
       }
       $filas = 0;
@@ -71,8 +70,7 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '4':
-      echo "\033[100m\nVa a visualizar una matriz en números Romanos...\033[0m\n\n";
-      if (!deseaContinuar()) {
+      if (!deseaContinuar('Va a visualizar una matriz en números Romanos...')) {
         break;
       }
       while (!$matriz) {
@@ -84,8 +82,7 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '5':
-      echo "\033[100m\nVa a visualizar el resumen de una matriz...\033[0m\n\n";
-      if (!deseaContinuar()) {
+      if (!deseaContinuar('Va a visualizar el resumen de una matriz...')) {
         break;
       }
       while (!$matriz) {
@@ -100,19 +97,10 @@ function programaMatrices(array $unaColeccionMatrices): void {
       break;
 
     case '6':
-      echo "\033[100m\nVa a salir del Programa Matrices...\033[0m\n\n";
-      if (!deseaContinuar()) {
+      if (!deseaContinuar('Va a salir del Programa Matrices...')) {
         break;
       }
-      echo "Saliendo";
-      usleep(250000);
-      echo".";
-      usleep(250000);
-      echo".";
-      usleep(250000);
-      echo".";
-      usleep(500000);
-      echo "\033c";
+      salirPrograma();
       die;
   }
   programaMatrices($unaColeccionMatrices); // recursividad
