@@ -52,9 +52,9 @@ function traducirNumeroARomano(int $unNumero): string {
   $centenas = ['', 'C'];  // ARRAY
 
   // Descomponer el numero en u-d-c
-  $unidadesIndex = $unNumero % 10;
-  $decenasIndex = ($unNumero % 100) / 10;
-  $centenasIndex = ($unNumero % 1000) / 100;
+  $unidadesIndex = $unNumero % 10;//Integer
+  $decenasIndex = ($unNumero % 100) / 10;//Integer
+  $centenasIndex = ($unNumero % 1000) / 100;//Integer
 
   if ($unNumero == 0) {
     $romano = '-'; // Caso único para dígito inexistente en números romanos

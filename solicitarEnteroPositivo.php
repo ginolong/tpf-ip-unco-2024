@@ -2,12 +2,16 @@
 /*include "validaciones.php";
 $numero = solicitarEnteroPositivo("filas");
 var_dump ($numero);*/
-/**  Funcion para obtener el numero de filas o columnas*/
-
+/** Funcion para obtener el numero de filas o columnas, validando la entrada con la función `validarEnteroPositivo()`*
+*@param string $dimension
+*
+*@return Integer $enteroPositivo
+*
+*/
 
 function solicitarEnteroPositivo (string $dimension): int {
     echo "Ingrese la cantidad de $dimension de la nueva Matriz" ."\n";
-    $datoEntrada = trim(fgets(STDIN));
+    $datoEntrada = trim(fgets(STDIN)); //Integer
     $enteroPositivo = 0;
     if (validarEnteroPositivo($datoEntrada)) {
         $enteroPositivo = intval($datoEntrada); //castea//

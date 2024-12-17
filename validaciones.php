@@ -1,4 +1,14 @@
 <?php
+/**
+ * Valida si un índice es válido para acceder a un elemento dentro de un arreglo.
+ *
+ * Esta función verifica que el índice proporcionado sea un número entero positivo y que esté 
+ * dentro del rango válido del arreglo.
+ *
+ * @param string $unIndice El índice a validar (se espera un número entero como cadena).
+ * @param array $unArray El arreglo donde se buscará el elemento.
+ * @return bool Retorna `true` si el índice es válido, `false` en caso contrario.
+ */
 function validarIndiceArray(string $unIndice, array $unArray): bool {
   $valido = true; // BOOLEAN
   $indiceMaximo = count($unArray); // INT
@@ -12,6 +22,17 @@ function validarIndiceArray(string $unIndice, array $unArray): bool {
   return $valido;
 }
 
+
+/**
+ * Valida si una respuesta es 's' o 'n'.
+ *
+ * Esta función verifica si la cadena de texto proporcionada es exactamente 's' o 'n', 
+ * lo cual se utiliza comúnmente para respuestas de sí o no.
+ *
+ * @param string $rta La respuesta a validar.
+ * @return bool Retorna `true` si la respuesta es 's' o 'n', `false` en caso contrario.
+ */
+
 function validarSioNo(string $rta): bool {
   $valido = true;
   if (!($rta === "s" || $rta === "n")) {
@@ -21,10 +42,30 @@ function validarSioNo(string $rta): bool {
     return $valido;
   }
 
-function mostrarError($mensajeError) {
+
+  /**
+ * Muestra un mensaje de error en la consola con formato destacado.
+ *
+ * Esta función imprime un mensaje de error en la consola, utilizando códigos ANSI para resaltar el texto 
+ * en color rojo y con fondo blanco.
+ *
+ * @param string $mensajeError El mensaje de error a mostrar.
+ * @return void
+ */
+function mostrarError(string $mensajeError): void {
   echo "\033[1;41m        ERROR: $mensajeError        \033[0m\n";
 }
 
+
+/**
+ * Valida si un dato es un número entero positivo.
+ *
+ * Esta función verifica si una cadena de texto representa un número entero positivo.
+ *
+ * @param string $unDato El dato a validar.
+ * @return bool Retorna `true` si el dato es un número entero positivo, `false` en caso contrario.
+ *
+ */ 
 function validarEnteroPositivo(string $unDato): bool {
   $valido = true; // BOOLEAN
   if (!ctype_digit($unDato)) {//usamos ctype_digit porque is_numeric toma los decimales (1.2)//

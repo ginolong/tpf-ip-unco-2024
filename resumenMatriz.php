@@ -22,15 +22,15 @@ print_r ($matriz); */
  *                 Nota: La simetría solo se verifica si la matriz es cuadrada.
  */
 function resumenMatriz(array $unaMatriz): array { 
-      $matrizResumen = [];
-      $fila = count($unaMatriz); //obtiene la cantidad de filas de la matriz//
-      $columna = count($unaMatriz[0]); //obtiene la cantidad de columnas de la matriz//
-      $suma = 0;
-      $cuadrada = ($fila == $columna) ? 'si' : 'no';
-      $simetrica = 'si'; 
+      $matrizResumen = []; //ARRAY 2D
+      $fila = count($unaMatriz); //Integer - Obtiene la cantidad de filas de la matriz//
+      $columna = count($unaMatriz[0]); //Integer - Obtiene la cantidad de columnas de la matriz//
+      $suma = 0; //Integer
+      $cuadrada = ($fila == $columna) ? 'si' : 'no'; //String
+      $simetrica = 'si'; //String
       for ($i = 0; $i < $fila; $i++) {
           for ($j = 0; $j < $columna; $j++) {
-              $suma += $unaMatriz[$i][$j]; //suma los elementos de la matriz//
+              $suma += $unaMatriz[$i][$j]; //Integer - Suma los elementos de la matriz//
               if ($cuadrada == "si") { //alternativa para ver si la matriz es simétrica con el requisito de que sea cuadrada//
                 if ($unaMatriz[$i][$j] != $unaMatriz[$j][$i]) { //compara los índices invertidos para ver si es simétrica//
                     $simetrica = 'no';
@@ -41,7 +41,7 @@ function resumenMatriz(array $unaMatriz): array {
               }
           }
       }
-      $promedio = round($suma / ($fila * $columna),2); //calcula el promedio y redondea a 2 decimales//
+      $promedio = round($suma / ($fila * $columna),2); //Float - Calcula el promedio y redondea a 2 decimales//
       $matrizResumen = [
           'dimension1' => $fila,    // INT
           'dimension2' => $columna, // INT

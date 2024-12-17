@@ -11,7 +11,7 @@ mostrarMatriz($matriz3);*/
  * de ancho fijo utilizando la funcion `str_pad()` de PHP.
  * 
  * Las filas se colorean alternadamente mediante codigos ANSI para mejorar la legibilidad,
- * tambien se imprimen lineas divisoras entre celdas para darle un formato de cuadricula atenuado.
+ * tambien se imprimen lineas divisoras entre celdas para darle un formato de cuadricula atenuado, utilizando la funcion `concatenaLineaDivisoria()`.
  *
  * @param array $unaMatriz Un array bidimensional que representa la matriz a mostrar. Cada sub-array representa una fila en la matriz.
  *
@@ -23,7 +23,7 @@ mostrarMatriz($matriz3);*/
 function mostrarMatriz(array $unaMatriz): void {
   echo "\n";
   $barraV = "\033[2m|\033[0m"; // STRING barra divisora vertical | atenuada
-  $lineaDivisora = concatenaLineaDivisora($unaMatriz); // STRING linea divisora atenuada
+  $lineaDivisora = concatenaLineaDivisoria($unaMatriz); // STRING linea divisora atenuada
 
   foreach ($unaMatriz as $indiceFila => $fila) {
     echo $lineaDivisora; // linea divisora inicial y entrefila
@@ -50,7 +50,7 @@ function mostrarMatriz(array $unaMatriz): void {
  *
  * @return string Una cadena que representa la línea divisora para la matriz dada.
  */
-function concatenaLineaDivisora (array $otraMatriz): string {
+function concatenaLineaDivisoria (array $otraMatriz): string {
   $linea = ""; // STRING
   for ($i=0; $i < count($otraMatriz[0]); $i++) { 
     $linea = $linea . "|--------"; // concatena tantas veces como índices tenga una fila (son todas iguales)
