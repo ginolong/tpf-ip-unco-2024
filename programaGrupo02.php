@@ -66,7 +66,7 @@ function programaMatrices(array $unaColeccionMatrices): void {
         $columnas = solicitarEnteroPositivo("columnas"); //pedir columnas (M) y valida que M sea integer positivo)//
       }
       $unaColeccionMatrices = incorporaMatriz($unaColeccionMatrices, $filas, $columnas);
-      echo "\033[42m\nSe ingresó una matriz de $filas filas x $columnas columnas\033[0m\n\n";
+      echo "\n\033[42;1;3mSe ingresó una matriz de $filas fila/s por $columnas columna/s en la posición ". count($unaColeccionMatrices) .".\033[0m\n\n";
       break;
 
     case '4':

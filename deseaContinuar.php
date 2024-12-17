@@ -7,7 +7,7 @@
 function deseaContinuar(string $opcion): bool {
   $respuestaValida = True; // BOOL
   do {
-    echo "\033[100m\n$opcion\033[0m\n"; // mensaje de opción seleccionada
+    echo "\n\033[100m$opcion\033[0m\n"; // mensaje de opción seleccionada
     echo "\n\033[103;30;3m¿Desea continuar con la opción seleccionada? (s/n):\033[0m\n";
     $respuesta = trim(fgets(STDIN)); // STRING
     $respuesta = strtolower($respuesta);
