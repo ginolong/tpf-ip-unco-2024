@@ -14,7 +14,7 @@ function validarIndiceArray(string $unIndice, array $unArray): bool {
   $indiceMaximo = count($unArray); // INT
   if (!ctype_digit($unIndice)) { //usamos ctype_digit porque is_numeric toma los decimales (1.2)//
     $valido = false;
-    mostrarError("El valor ingresado '$unIndice' no es un número.         ");
+    mostrarError("El valor ingresado '$unIndice' no es un número.");
   } elseif (!($unIndice >= 1 && $unIndice <= $indiceMaximo)) { // Verifica si la seleccion esta dentro del rango de opciones validas (count de array)
     $valido = false;
     mostrarError("El número ingresado '$unIndice' no es una opción válida. Por favor, ingrese un número entre 1 y $indiceMaximo.");
@@ -37,7 +37,7 @@ function validarSioNo(string $rta): bool {
   $valido = true;
   if (!($rta === "s" || $rta === "n")) {
     $valido = false;
-    mostrarError ("El valor ingresado $rta no es una opción valida. Por favor, ingrese (s) o (n)");
+    mostrarError ("El valor ingresado $rta no es una opción valida. Por favor, ingrese (s) o (n).");
   }
     return $valido;
   }
@@ -53,7 +53,7 @@ function validarSioNo(string $rta): bool {
  * @return void
  */
 function mostrarError(string $mensajeError): void {
-  echo "\033[1;41m        ERROR: $mensajeError        \033[0m\n";
+  echo "\033[1;41m        ERROR        \033[0m $mensajeError\n\n";
 }
 
 
@@ -78,3 +78,17 @@ function validarEnteroPositivo(string $unDato): bool {
   return $valido;
 }
 
+/**
+ * Valida si el usuario desea cancelar una operación durante su ejecución.
+ *
+ * Esta función arroja una nueva excepción (utilizando la clase base Exception) en caso de que el usuario haya ingresado la palabra 'cancelar'.
+ *
+ * @param string $entradaDeUsuario
+ * 
+ * @return void
+ */ 
+function validarCancelacion(string $entradaDeUsuario): void {
+  if (strtolower($entradaDeUsuario) === 'cancelar') {
+    throw new Exception("\033[3mOperación cancelada. Regresando al menú principal...\033[0m\n", 91218);
+  }
+}
